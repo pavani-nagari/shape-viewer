@@ -6,7 +6,7 @@ const NewShapes = ({ setShapes }) => {
     const [height, setHeight] = useState(50);
     const [x, setX] = useState(100);
     const [y, setY] = useState(100);
-    const [color, setColor] = useState("#ff0000");
+    const [color, setColor] = useState("#B9AA88");
     const [numSides, setNumSides] = useState(3); // Default to triangle (3 sides)
 
     // Function to generate polygon points based on width, height, and number of sides

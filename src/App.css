@@ -36,22 +36,6 @@ General App Styling
 }
 
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.4);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-
 /* Top Toolbar */
 .toolbar {
   background: #3498db; /* Modern blue */
@@ -119,6 +103,7 @@ General App Styling
 
 .sidebar p:hover {
   background: #2c3e50; /* Darker blue on hover */
+  color: white;
 }
 
 /* Shape Viewport */
@@ -159,7 +144,7 @@ General App Styling
 }
 
 .shape-controls {
-  background-color: #f8f9fa;
+  background-color: #4c98da;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -169,9 +154,11 @@ General App Styling
 
 .shape-controls h3 {
   color: #2c3e50;
+  margin-top: 0vh;
   margin-bottom: 20px;
   text-align: center;
   font-size: 1.5em;
+  margin-top: 0px;
 }
 
 .shape-controls label {
@@ -179,6 +166,13 @@ General App Styling
   margin-top: 10px;
   color: #34495e;
   font-weight: 500;
+}
+
+.shape-controls input:focus,
+.shape-controls select:focus {
+    border-color: #3498db; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Soft glow effect */
+    outline: none;
 }
 
 .shape-controls select,
@@ -207,24 +201,29 @@ General App Styling
 }
 
 .shape-controls button {
-  width: 100%;
+  width: 50%;
   padding: 10px;
-  background-color: #3498db;
-  color: white;
+  background-color: #b2d2f5;
+  color: #315495;
+  font-family: Verdana;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 900;
   transition: background-color 0.3s ease;
 }
 
 .shape-controls button:hover {
-  background-color: #2980b9;
+  background-color: #ffffff;
+  color: black;
 }
 
 .shape-controls button:active {
   background-color: #2471a3;
 }
+
+
+
 
 

@@ -11,6 +11,7 @@ function App() {
     const [fileName, setFileName] = useState("");
     const [shapes, setShapes] = useState([]);
 
+
     // Handle file upload
     const handleFileUpload = (event) => {
         const file = event.target.files[0];
@@ -23,6 +24,7 @@ function App() {
             const content = e.target.result;
             const parsedShapes = parseShapeFile(content);
             setShapes(parsedShapes);
+            
         };
         reader.readAsText(file);
     };
@@ -88,7 +90,7 @@ function App() {
 
     return (
         <div className="app">
-            <header className="toolbar">
+            <header className="toolbar" id="toolbar">
                 <h1>
                   <span className="pulsating-dot"></span>
                   <span className="floating-shape">🔺</span>
@@ -123,7 +125,7 @@ function App() {
 
                 {/* Pass setShapes to enable dragging */}
                 <div id="canvas1">
-                <ShapeViewer shapes={shapes} setShapes={setShapes} />
+                <ShapeViewer  shapes={shapes} setShapes={setShapes} />
                 </div>
                 
             </div>

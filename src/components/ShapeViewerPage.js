@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Stage, Layer, Rect, RegularPolygon, Line } from "react-konva";
 
-const ShapeViewer = ({ shapes, setShapes }) => {
-  const [canvasSize, setCanvasSize] = useState({ width: window.innerWidth * 0.79, height: window.innerHeight});
-
+const ShapeViewer = ({  shapes, setShapes }) => {
+  const [canvasSize, setCanvasSize] = useState({ width: window.innerWidth * 0.79, height: document.documentElement.clientHeight  });
   useEffect(() => {
     if (shapes.length === 0) return;
 
@@ -20,7 +19,7 @@ const ShapeViewer = ({ shapes, setShapes }) => {
       }
     });
 
-    setCanvasSize({ width: window.innerWidth * 0.79, height: window.innerHeight });
+    setCanvasSize({ width: window.innerWidth * 0.79, height: document.documentElement.clientHeight });
   }, [shapes]);
 
   const handleDragMove = (index, e) => {
