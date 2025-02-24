@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import ShapeViewer from './components/ShapeViewerPage';
-import { useState } from 'react';
+import { useState , useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderOpen, faSave } from '@fortawesome/free-solid-svg-icons';
 import NewShapes from './components/NewShapes';
@@ -10,6 +10,11 @@ import NewShapes from './components/NewShapes';
 function App() {
     const [fileName, setFileName] = useState("");
     const [shapes, setShapes] = useState([]);
+    const elementRef = useRef(null); // Create a reference to the element
+    const [menuHeight, setMenuHeight] = useState(0);
+    useEffect(() => {
+        setMenuHeight(elementRef.current.offsetHeight);
+      }, []);
 
 
     // Handle file upload
@@ -101,16 +106,12 @@ function App() {
                         {fileName ? fileName : "Open Shape File"}
                         <input type="file" onChange={handleFileUpload} accept=".shapefile" hidden />
                     </label>
-                    {fileName && (
-                        <button className="upload-btn" style={{ marginLeft: "10px", background: "#3498db" }} onClick={handleSaveAs}>
-                            Save As
-                        </button>
-                    )}
+                    
                 </div>
             </header>
 
             <div className="container">
-                <aside className="sidebar">
+                <aside className="sidebar" ref={elementRef}>
                     <p onClick={() => document.getElementById("fileInput").click()} style={{ cursor: "pointer" }}>
                       <FontAwesomeIcon icon={faFolderOpen} style={{ marginRight: '8px' }} />
                        Open Shape File
@@ -125,7 +126,7 @@ function App() {
 
                 {/* Pass setShapes to enable dragging */}
                 <div id="canvas1">
-                <ShapeViewer  shapes={shapes} setShapes={setShapes} />
+                <ShapeViewer menuHeight={menuHeight} shapes={shapes} setShapes={setShapes} />
                 </div>
                 
             </div>

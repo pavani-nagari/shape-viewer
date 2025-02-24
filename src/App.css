@@ -140,7 +140,7 @@ General App Styling
 .sidebar {
   width: 250px;
   padding: 10px;
-  background: #eee;
+  background: #fff;
 }
 
 .shape-controls {
@@ -153,12 +153,13 @@ General App Styling
 }
 
 .shape-controls h3 {
-  color: #2c3e50;
+  color: #fff;
   margin-top: 0vh;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 1.5em;
   margin-top: 0px;
+  font-family: monospace;
+  font-size: larger;
 }
 
 .shape-controls label {
@@ -201,7 +202,7 @@ General App Styling
 }
 
 .shape-controls button {
-  width: 50%;
+  width: 10vw;
   padding: 10px;
   background-color: #b2d2f5;
   color: #315495;
