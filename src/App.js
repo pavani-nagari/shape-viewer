@@ -8,16 +8,17 @@ import NewShapes from './components/NewShapes';
 
 
 function App() {
-    const [fileName, setFileName] = useState("");
-    const [shapes, setShapes] = useState([]);
-    const elementRef = useRef(null); // Create a reference to the element
+    
+    const [fileName, setFileName] = useState(""); // State for storing the uploaded file name.
+    const [shapes, setShapes] = useState([]); // State to store the array of shapes.
+    const sidebarRef = useRef(null); // Create a reference to the element "sidebar"
     const [menuHeight, setMenuHeight] = useState(0);
     useEffect(() => {
-        setMenuHeight(elementRef.current.offsetHeight);
+        setMenuHeight(sidebarRef.current.offsetHeight);
       }, []);
 
 
-    // Handle file upload
+    // Handling file upload feature
     const handleFileUpload = (event) => {
         const file = event.target.files[0];
         if (!file) return;
@@ -27,19 +28,19 @@ function App() {
         const reader = new FileReader();
         reader.onload = (e) => {
             const content = e.target.result;
-            const parsedShapes = parseShapeFile(content);
+            const parsedShapes = parseShapeFile(content); // Parsing the shape data from the file.
             setShapes(parsedShapes);
             
         };
         reader.readAsText(file);
     };
 
-    // Function to parse shape file
+    // Function to parse shape file and get the shapes
     const parseShapeFile = (content) => {
       const lines = content.split("\n").filter(line => line.trim() !== "");
       return lines.map(line => {
           const parts = line.split(",").map(part => part.trim());
-          const type = parts[0].trim();
+          const type = parts[0].trim(); // First part is the shape type.
   
           if (type.toLowerCase() === "polygon") {
               return {
@@ -51,14 +52,14 @@ function App() {
                   color: `#${parts[parts.length - 1].trim()}`,
               };
           } else {
-              const [_, x, y, z, width, height, color] = parts;
-              return {
+              const [_, x, y, z, width, height, color] = parts; 
+              return {  
                   type,
-                  x: parseInt(x),
+                  x: parseInt(x), // Parse integer values for x, y, width, height.
                   y: parseInt(y),
                   width: parseInt(width),
                   height: parseInt(height),
-                  color: `#${color.trim()}`,
+                  color: `#${color.trim()}`, // Extract color (last part).
               };
           }
       });
@@ -84,10 +85,10 @@ function App() {
             })
             .join("\n");
 
-        const blob = new Blob([fileContent], { type: "text/plain" });
+        const blob = new Blob([fileContent], { type: "text/plain" }); // creating a Blob from the file content.
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = `${fileName}.shapefile`;  // Use the user-provided file name with the ".shapefile" extension
+        link.download = `${fileName}.shapefile`;  // use the user-provided file name with the ".shapefile" extension
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -111,7 +112,7 @@ function App() {
             </header>
 
             <div className="container">
-                <aside className="sidebar" ref={elementRef}>
+                <aside className="sidebar" ref={sidebarRef}>
                     <p onClick={() => document.getElementById("fileInput").click()} style={{ cursor: "pointer" }}>
                       <FontAwesomeIcon icon={faFolderOpen} style={{ marginRight: '8px' }} />
                        Open Shape File
@@ -121,7 +122,7 @@ function App() {
                         <FontAwesomeIcon icon={faSave} style={{ marginRight: '8px' }} />
                         Save As
                     </p>
-                    <NewShapes setShapes={setShapes} />
+                    <NewShapes setShapes={setShapes} /> 
                 </aside>
 
                 {/* Pass setShapes to enable dragging */}

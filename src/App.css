@@ -50,24 +50,24 @@ General App Styling
 
 /* Upload Button */
 .upload-btn {
-  background: #1765df; /* Green button */
-  padding: 10px 20px; /* Adjusted padding */
-  border-radius: 8px; /* Rounded corners */
+  background: #1765df; 
+  padding: 10px 20px; 
+  border-radius: 8px; 
   cursor: pointer;
   color: white;
-  font-weight: 500; /* Semi-bold font */
-  border: none; /* Remove default border */
+  font-weight: 500;
+  border: none; 
   transition: background-color 0.3s ease; 
 }
 
 .upload-btn:hover {
-  background: white; /* Darker green on hover */
+  background: white; 
   color: black;
 
 }
 
 .upload-btn:focus {
-  outline: none; /* Remove focus outline */
+  outline: none; 
   box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.5); /* Add a focus shadow */
 }
 
@@ -80,7 +80,7 @@ General App Styling
 /* Sidebar */
 .sidebar {
   width: 18vw !important; /* Wider sidebar */
-  background: #34495e; /* Dark blue sidebar */
+  background: #34495e; 
   color: white;
   padding: 20px;
   font-size: 18px; /* Increased font size */
@@ -95,14 +95,14 @@ General App Styling
   margin: 10px 0;
   cursor: pointer;
   color: #426a9a;
-  padding: 12px 15px; /* Adjusted padding */
-  text-align: left; /* Align text to the left */
+  padding: 12px 15px; 
+  text-align: left; 
   border-radius: 8px; /* Rounded corners */
   transition: background-color 0.3s ease; /* Smooth transition */
 }
 
 .sidebar p:hover {
-  background: #2c3e50; /* Darker blue on hover */
+  background: #2c3e50; 
   color: white;
 }
 
@@ -115,7 +115,7 @@ General App Styling
   border: none; /* Remove border */
   margin: 10px;
   background: #fff; /* White background */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
   border-radius: 12px; /* More rounded corners */
   overflow: hidden; /* Ensure canvas doesn't overflow */
 }
@@ -124,7 +124,7 @@ General App Styling
 
 .canvas {
   border: none; /* Remove border */
-  background: #f4f4f4; /* Light gray background */
+  background: #f4f4f4; 
   border-radius: 10px; /* Rounded corners */
   cursor: grab; /* Change cursor to a "grab" hand */
 }

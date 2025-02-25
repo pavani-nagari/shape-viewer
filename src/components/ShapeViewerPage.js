@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Stage, Layer, Rect, RegularPolygon, Line } from "react-konva";
 
 const ShapeViewer = ({ menuHeight, shapes, setShapes }) => {
+
+  // Initialize canvas size based on window width and menu height
   const [canvasSize, setCanvasSize] = useState({ width: window.innerWidth * 0.79, height: menuHeight  });
   useEffect(() => {
-    if (shapes.length === 0) return;
+    if (shapes.length === 0) return;  // Exit if no shapes exist
 
     let maxX = 0, maxY = 0;
+    // Determine the maximum x and y coordinates from all shapes
     shapes.forEach((shape) => {
       if (shape.type === "Rectangle" || shape.type === "Triangle") {
         maxX = Math.max(maxX, shape.x + shape.width);
@@ -18,10 +21,11 @@ const ShapeViewer = ({ menuHeight, shapes, setShapes }) => {
         }
       }
     });
-
+    // Update canvas size dynamically
     setCanvasSize({ width: window.innerWidth * 0.79, height: menuHeight });
   }, [shapes]);
 
+   // Function to handle shape dragging and update position
   const handleDragMove = (index, e) => {
     const { x, y } = e.target.position();
     setShapes((prevShapes) => {
@@ -35,6 +39,7 @@ const ShapeViewer = ({ menuHeight, shapes, setShapes }) => {
     <Stage width={canvasSize.width} height={canvasSize.height} style={{ border: "1px solid black" }}>
       <Layer>
         {shapes.map((shape, index) => {
+          // Rendering Rectangle
           if (shape.type === "Rectangle") {
             return (
               <Rect
@@ -48,6 +53,7 @@ const ShapeViewer = ({ menuHeight, shapes, setShapes }) => {
                 onDragMove={(e) => handleDragMove(index, e)}
               />
             );
+            // Rendering Triangle (as a RegularPolygon with 3 sides)
           } else if (shape.type === "Triangle") {
             return (
               <RegularPolygon
@@ -61,6 +67,7 @@ const ShapeViewer = ({ menuHeight, shapes, setShapes }) => {
                 onDragMove={(e) => handleDragMove(index, e)}
               />
             );
+            // Rendering Polygon (as a closed Line)
           } else if (shape.type === "Polygon") {
             return (
               <Line
