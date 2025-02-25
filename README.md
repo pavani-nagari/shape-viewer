@@ -1,3 +1,14 @@
+The README.pdf file and 5 sample test files with .shapefile extension are in the public folder.
+The project is hosted on Versel. You can find it in the link "https://shape-viewer-rust.vercel.app/"
+You can view the project on my github too "https://github.com/pavani-nagari/shape-viewer"
+
+Instructions to Run the Application
+1. Extract the contents of the provided .zip file.
+2. Navigate to the project directory in your terminal.
+3. Run npm install to install the required dependencies.
+4. Run npm start to start the development server.
+5. Open your web browser and navigate to http://localhost:3000.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
