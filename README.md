@@ -9,73 +9,70 @@ Instructions to Run the Application
 4. Run npm start to start the development server.
 5. Open your web browser and navigate to http://localhost:3000.
 
-# Getting Started with Create React App
+# Shape Viewer 🖼️
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview 🌟
 
-## Available Scripts
+**Shape Viewer** is a browser-based single-page application that allows users to import and render two-dimensional shapes from a custom text-based file format. Built with React and powered by the Konva library, the app efficiently renders shapes on a canvas for an interactive experience. 🚀
 
-In the project directory, you can run:
+## Features 🎨
 
-### `npm start`
+- **Shape File Import:** 🗂️ Easily load `.shapefile` files through the "Open Shape File" button in the top toolbar or left menu.
+- **Shape Rendering:** 🎭 Renders rectangles, triangles, and polygons based on the data provided in the shape file.
+- **Custom Shape File Format:** 📄 Supports a simple, human-readable, text-based file format to define shapes.
+- **Shape Creation:** ✏️ Create new shapes (rectangles, triangles, and polygons) with specified dimensions, positions, and colors directly from the left menu.
+- **Shape Translation:** ↔️ Drag and reposition shapes within the viewport to customize their placement.
+- **Save As:** 💾 Save your modified shape configurations to a new `.shapefile`.
+- **UI Enhancement:** 🌈 A modern, visually appealing, and user-friendly interface that follows current industry standards.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used 💻
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React:** ⚛️ A powerful JavaScript library for building user interfaces.
+- **Konva:** 🎨 A 2D JavaScript canvas library for drawing complex shapes and handling events.
+- **Font Awesome:** 🎯 For beautiful icons in the user interface.
+- **CSS:** 🎨 Styling the application for a polished and modern look.
 
-### `npm test`
+## Project Structure 📂
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The project is structured as follows:
 
-### `npm run build`
+- `src/`: Contains the source code of the application.
+    - `App.js`: 🏠 The main component that handles the UI and data flow.
+    - `components/`: 🧩 Contains reusable React components.
+        - `ShapeViewerPage.js`: 🖼️ Displays the shapes on a Konva canvas.
+        - `NewShapes.js`: 🖌️ UI for creating new shapes.
+    - `App.css`: 💅 Styling for the application.
+    - `index.js`: 📝 The entry point for the React application.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Shape File Format 📑
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Shape Viewer** uses a custom text-based file format with the `.shapefile` extension. Each line in the file represents a shape, defined with comma-separated values.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Supported Shapes 🏷️
 
-### `npm run eject`
+- **Rectangle**
+-  x`, `y`: Top-left corner coordinates.
+- `z`: Z-index (currently not used).
+- `width`: Width of the rectangle.
+- `height`: Height of the rectangle.
+- `color`: Hex color code (e.g., `#ff0000` for red).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Triangle:**
+- `x`, `y`: Top-left corner coordinates.
+- `z`: Z-index (currently not used).
+- `width`: Width of the triangle.
+- `height`: Height of the triangle.
+- `color`: Hex color code (e.g., `#ff0000` for red).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Polygon:**
+- `x1, y1, x2, y2, ..., xn, yn`: Coordinates of the polygon’s vertices.
+- `color`: Hex color code (e.g., `#ff0000` for red).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Example Shape File 📄
+Rectangle, 10, 20, 0, 100, 200, ff0000 
+Triangle, 150, 250, 0, 120, 180, 00ff00 
+Polygon, 300, 350, 400, 450, 500, 350, 600, 400, 0000ff
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
